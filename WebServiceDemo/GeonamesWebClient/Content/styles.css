@@ -1,0 +1,42 @@
+﻿body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+h1, h3 
+{
+	font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: Navy;
+}
+
+span.discount
+{
+	color: Red;
+}
+
+#main {
+    float: left;
+}
+
+#sidebar {
+    float: left;
+    margin-left:20px;
+}
+
+p#status
+{
+	color: Green;
+}
+
+p#statusmessage
+{
+	color: Red;
+}
+
+ #iFrame {
+   display     : none;
+   visibility  : hidden; 
+   height      : 1px;
+ }

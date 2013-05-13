@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>REST Web Service Demo</title>
+    <link rel="Stylesheet" type="text/css" href="/Content/styles.css" media="screen" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#go').click(getPlacename);
+
+            function getPlacename() {
+                $('#result').html('');
+
+                var postalcode = $('#postalcode').val();
+                var country = $('#country').val();
+
+                var url = 'http://ws.geonames.org/postalCodeLookupJSON';
+
+                $.ajax({
+                    url: url,
+                    data: {
+                        formatted: "true",
+                        postalcode: postalcode,
+                        country: country,
+                        style: "full"
+                    },
+                    dataType: "jsonp",
+                    jsonpCallback: "jsonpcallback"
+                });
+            }
+        });
+
+        function jsonpcallback(rtndata) {
+            if (rtndata.postalcodes[0] == null) {
+                alert("Sorry, location not found by web service");
+            }
+            else {
+                var placename = rtndata.postalcodes[0].placeName;
+                $('#result').html('<h4>Search results</h4>');
+                $('#result').append('Place name = ' + rtndata.postalcodes[0].placeName + '<br/>');
+                $('#result').append('Latitude = ' + rtndata.postalcodes[0].lat + '<br/>');
+                $('#result').append('Longitude = ' + rtndata.postalcodes[0].lng + '<br/>');
+
+                // Initialize the map
+                map = new Microsoft.Maps.Map(document.getElementById("myMap"),
+                             { credentials: "ArJpvN_KKO7xu4vglugV23uIxr8C9zF6GfEUUIEm5-NKkyErkmL4y2wJhDA9F0LM " });
+
+                // Define the pushpin location
+                var loc = new Microsoft.Maps.Location(rtndata.postalcodes[0].lat, rtndata.postalcodes[0].lng);
+
+                // Add a pin to the map
+                var pin = new Microsoft.Maps.Pushpin(loc);
+                map.entities.push(pin);
+
+                // Center the map on the location
+                map.setView({ center: loc, zoom: 10 });
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Geonames postal code search
+    </h3>
+    <div id="main">
+        <form id="locationinput">
+            <p>
+                Enter a postal code, and a country, and click SEARCH:
+            </p>
+            <p>
+                Postal code:
+        <input type="text" id="postalcode" />
+            </p>
+            <p>
+                Country:
+        <input type="text" id="country" />
+            </p>
+            <p>
+                <input type="button" id="go" value="SEARCH" />
+            </p>
+        </form>
+        <div id="result">
+        </div>
+    </div>
+    <div id="sidebar">
+        <div id='myMap' style="position:relative; width: 250px; height: 250px;"></div>
+    </div>
+</body>
+</html>
