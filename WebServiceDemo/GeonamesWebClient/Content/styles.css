@@ -17,12 +17,16 @@ span.discount
 }
 
 #main {
+    width: 300px;
     float: left;
 }
 
 #sidebar {
-    float: left;
-    margin-left:20px;
+    margin-left: 320px;
+}
+
+.clear {
+        clear: both;
 }
 
 p#status
