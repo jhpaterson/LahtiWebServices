@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f9ca217d-488c-4079-a3f6-b1b6e1a8eed2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1144/CalcService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CalcService.disco" MetadataType="Disco" ID="e7ce7aaf-f5bd-4cb9-a0dc-d0a2baa1bdbd" SourceId="1" SourceUrl="http://localhost:1144/CalcService.svc?disco" />
+    <MetadataFile FileName="CalcService.xsd" MetadataType="Schema" ID="31f28229-bc95-4cb1-a8b7-0e53d36d7457" SourceId="1" SourceUrl="http://localhost:1144/CalcService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CalcService.wsdl" MetadataType="Wsdl" ID="4e42bb96-9eed-4fd8-9d90-43115d2c934c" SourceId="1" SourceUrl="http://localhost:1144/CalcService.svc?wsdl" />
+    <MetadataFile FileName="CalcService1.xsd" MetadataType="Schema" ID="959411a5-3411-4f46-9404-e4e97d5022e2" SourceId="1" SourceUrl="http://localhost:1144/CalcService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
